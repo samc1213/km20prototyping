@@ -1,0 +1,38 @@
+#rightpane {
+    width: 50%;
+    float: left;
+    box-sizing: border-box;
+}
+#leftpane {
+    width: 50%;
+    float: left;
+    box-sizing: border-box;
+}
+#tree1 {
+    display: block;
+}
+#savechanges {
+    display: block;
+}
+#categoryquestion {
+    display: none;
+    width: 100%;
+}
+#levelbox {
+    border: 1px solid black;
+}
+#elementbox {
+    border: 1px solid black;
+    margin-top: 3em;
+}
+#newnode {
+    border-bottom: 1px solid black;
+}
+
+#fielddiv {
+    display: none;
+}
+
+#categorydiv {
+    display: none;
+}
