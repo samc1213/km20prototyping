@@ -16,6 +16,8 @@
         <div id="leftpane">
             <button id="newcategorybtn" class="newelementbtn">Add new category to tree</button>
             <button id="newfieldbtn" class="newelementbtn">Add new field to tree</button>
+            <button id="submitheirarchybtn">Save hierarchy</button>
+            <button id="deletenode">Delete selected node</button>
             <div id="tree1"></div>
         </div>
         <div id="rightpane">

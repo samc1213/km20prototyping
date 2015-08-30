@@ -36,3 +36,19 @@
 #categorydiv {
     display: none;
 }
+
+#categoryform {
+    width: 10em;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -5em;
+    text-align: center;
+    border: 1px solid black;
+}
+
+#categoryoptions {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

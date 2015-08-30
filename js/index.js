@@ -1,26 +1,66 @@
 $(document).ready(function () {
     nodecount = 0;
     questions = [];
+    jsonhierarchy = '';
+    
     fieldtypes = ['Plain Text', 'Dropdown', 'Integer', 'Decimal'];
     
     $.each(fieldtypes, function (i, v) {
         $('#fieldtype').append('<option name="' + fieldtypes[i] + '">' + fieldtypes[i] + '</option>');
     });
     
+    function createTree(jsonhierarchy) {
+        $('#tree1').tree({
+            data: JSON.parse(jsonhierarchy),
+            dragAndDrop: true,
+            onCanMoveTo: function(moved_node, target_node, position) {
+                //don't allow fields to have children
+                if (target_node.type == 'field') {
+                    return false;
+                }
+                else {
+                    return true;
+                }
+            }
+        });
+    };
     
-    $('#tree1').tree({
-        data: [],
-        dragAndDrop: true,
-        onCanMoveTo: function(moved_node, target_node, position) {
-            //don't allow fields to have children
-            if (target_node.type == 'field') {
-                return false;
-            }
-            else {
-                return true;
-            }
-        }
+    $.ajax({
+        type: "GET",
+        url: '/php/gethierarchy.php',
+        success: function (data) {
+            jsonhierarchy = data;
+            console.log(data);
+            createTree(jsonhierarchy);
+            rootnode = $('#tree1').tree('getTree');
+            console.log(rootnode.getData());
+            var trueroot = rootnode.children[0];
+            console.log(trueroot);
+            console.log(getNodecount(trueroot));
+            nodecount = getNodecount(trueroot);
+        },
+        async: true,
     });
+    
+    function getNodecount(rootnode) {
+        queue = [];
+        count = 0;
+        queue.push(rootnode);
+        return getNodecountrecurse(queue);
+    };
+    
+    function getNodecountrecurse(queue) {
+        while (queue.length != 0)
+        {
+            var node = queue.pop();
+            count++;
+                for (var i = 0; i < node.children.length; i++) {
+                        queue.push(node.children[i]);
+                    }
+                return getNodecountrecurse(queue);
+        }
+        return count;
+    };
     
     $('#tree1').bind(
         'tree.select',
@@ -111,5 +151,42 @@ $(document).ready(function () {
             $('#categoryquestion').hide();
             $(this).text('Show category question');
         }
+    });
+    
+    $('#submitheirarchybtn').click(function (e) {
+        e.preventDefault();
+        console.log('hihi');
+        var rootnode = $('#tree1').tree('getTree');
+        console.log(rootnode);
+        data = rootnode.getData();
+        console.log(data);
+        jsondata = JSON.stringify(data);
+        console.log(jsondata);
+        
+        $.ajax({
+            type: "POST",
+            url: '/php/savehierarchy.php',
+            data: {
+                data: jsondata
+            },
+            success: function(data) {
+                console.log(data);
+            },
+        });
+    });
+    
+    $('#deletenode').click( function(e) {
+        $tree = $('#tree1');
+        var selectednode = $tree.tree('getSelectedNode');
+        if (selectednode.id != 0)
+        {
+            $tree.tree('removeNode', selectednode);
+            nodecount--;
+        }
+        else
+        {
+            alert("Can't delete the root node!");
+        }
+
     });
 });
