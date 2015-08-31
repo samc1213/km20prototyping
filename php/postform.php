@@ -11,12 +11,17 @@
     ));
     
     $time = time();
+    $item = array('timestamp' => array('N' => $time));
+    foreach ($data as $d)
+    {
+        $name = $d->name;
+        $value = $d->value;
+        $item[$name] = array('S' => $value);
+    }
 
     $result = $client->putItem(array(
         'TableName' => 'papers',
-        'Item' => array(
-            'timestamp' => array('N' => $time),
-        ),
+        'Item' => $item,
         'Expected' => array(
         // Associative array of custom 'AttributeName' key names
         'AttributeValueList' => array(
