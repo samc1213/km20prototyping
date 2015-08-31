@@ -9,7 +9,6 @@
     $client = DynamoDbClient::factory(array(
         'profile' => 'default',
         'region' => 'us-west-2', #replace with your desired region
-        'endpoint' => 'http://localhost:8000'
     ));
     
     $time = time();
