@@ -8,11 +8,14 @@
 
     <link rel="stylesheet" href="css/custom.css">
     
-    <form id="categoryform">
+    <form id="categoryform" class="centerform">
         <label id="categoryformlabel"></label>
         <select id="categoryoptions">
         </select>
         <input type="submit" value="Next"></input>
+    </form>
+    <form id="fieldform" class="centerform">
+        <button type="submit"></button>
     </form>
 </head>
 

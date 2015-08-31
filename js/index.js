@@ -3,7 +3,7 @@ $(document).ready(function () {
     questions = [];
     jsonhierarchy = '';
     
-    fieldtypes = ['Plain Text', 'Dropdown', 'Integer', 'Decimal'];
+    fieldtypes = ['Plain Text',];
     
     $.each(fieldtypes, function (i, v) {
         $('#fieldtype').append('<option name="' + fieldtypes[i] + '">' + fieldtypes[i] + '</option>');
@@ -76,13 +76,16 @@ $(document).ready(function () {
                     $('#fielddiv').hide();
                     $('#categoryname').val(node.name);
                     $('#categorylevel').text(nodelevel);
-                    $('#elementid').val(node.id);
+                    $('#categoryid').val(node.id);
                     $('#categoryquestion').val(node.question);
                 }
                 
                 else {
                     $('#categorydiv').hide();
+                    $('#fieldname').val(node.name);
+                    $('#fieldtype').val(node.fieldtype);
                     $('#fielddiv').show();
+                    $('#fieldid').val(node.id);
                 }
             } else {
                 // event.node is null
@@ -94,9 +97,9 @@ $(document).ready(function () {
         }
     );
     
-    $('#savechanges').click( function(e) {
+    $('#savecategorychanges').click( function(e) {
         $tree = $('#tree1');
-        var nodeid = $('#elementid').val();
+        var nodeid = $('#categoryid').val();
         var node = $tree.tree('getNodeById', nodeid);
         var newlabel = $('#categoryname').val();
         var level = $('#elementlevel').text();
@@ -107,6 +110,23 @@ $(document).ready(function () {
             node, {
                 label: newlabel,
                 question: levelquestion
+            }
+        );
+    });
+    
+    $('#savefieldchanges').click( function(e) {
+        $tree = $('#tree1');
+        var nodeid = $('#fieldid').val();
+        var node = $tree.tree('getNodeById', nodeid);
+        
+        var newlabel = $('#fieldname').val();
+        var newfieldtype = $('#fieldtype').val();
+        
+        $tree.tree(
+            'updateNode',
+            node, {
+                label: newlabel,
+                fieldtype: newfieldtype,
             }
         );
     });
@@ -124,6 +144,7 @@ $(document).ready(function () {
         else {
             attributes.type = 'field';
             attributes.label = 'new_field';
+            attributes.fieldtype = fieldtypes[0];
         }
         
         attributes.id = nodecount;
