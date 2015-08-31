@@ -10,10 +10,7 @@
 
 </head>
 <body>
-    
-    <?php
-        require '/vendor/autoload.php';
-    ?>
+
     <h1>KM 2.0 Testing</h1>
     <div id="parent">
         <div id="leftpane">
