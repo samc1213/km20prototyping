@@ -10,7 +10,10 @@
 
 </head>
 <body>
-
+    <?php
+        include '.env.php';
+        setCustomEnvironment();
+    ?>
     <h1>KM 2.0 Testing</h1>
     <div id="parent">
         <div id="leftpane">

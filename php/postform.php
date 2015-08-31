@@ -7,7 +7,6 @@
     echo var_dump($data);
 
     $client = DynamoDbClient::factory(array(
-        'profile' => 'default',
         'region' => 'us-west-2', #replace with your desired region
     ));
     
