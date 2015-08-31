@@ -12,7 +12,7 @@
 <body>
     
     <?php
-        require '/path/to/sdk/vendor/autoload.php';
+        require '/vendor/autoload.php';
     ?>
     <h1>KM 2.0 Testing</h1>
     <div id="parent">
