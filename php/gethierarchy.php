@@ -12,4 +12,6 @@
     ));
 
     echo $result['Body'] . "\n";
+//    use for local testing:
+//    echo file_get_contents('hierarchy.json');
 ?>

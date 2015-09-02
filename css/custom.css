@@ -54,3 +54,11 @@
 #fieldform {
     display: none;
 }
+
+.field {
+    font-style: italic;
+}
+
+.category {
+    font-weight: bold;
+}

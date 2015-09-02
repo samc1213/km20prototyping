@@ -21,8 +21,25 @@ $(document).ready(function () {
                 else {
                     return true;
                 }
+            },
+            onCreateLi: function (node, $li) {
+                //add css class for styling purposes
+                if (node.type) {
+                    var $title = $li.find('.jqtree-title');
+                    $title.addClass(node.type);
+                }
             }
+            
         });
+    };
+    
+    function validateHierarchy(hierarchy) {
+//        check if there is one node at the top level of the hierarchy - everything should be under the root node
+        if (hierarchy.length != 1)
+        {
+            return 'Every node must fall under the root node';
+        }
+        return 'Valid';
     };
     
     $.ajax({
@@ -176,13 +193,15 @@ $(document).ready(function () {
     
     $('#submitheirarchybtn').click(function (e) {
         e.preventDefault();
-        console.log('hihi');
         var rootnode = $('#tree1').tree('getTree');
-        console.log(rootnode);
         data = rootnode.getData();
-        console.log(data);
+        var validation = validateHierarchy(data);
+        if (validation != 'Valid')
+        {
+            alert(validation);
+            return;
+        }
         jsondata = JSON.stringify(data);
-        console.log(jsondata);
         
         $.ajax({
             type: "POST",
