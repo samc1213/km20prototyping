@@ -9,8 +9,9 @@
     $result = $client->getObject(array(
         'Bucket' => $bucket,
         'Key'    => 'hierarchy.json',
-        'SaveAs' => 'hierarchy.json'
     ));
 
-    echo file_get_contents('hierarchy.json');
+    echo $result['Body'] . "\n";
+
+//    echo file_get_contents('hierarchy.json');
 ?>
