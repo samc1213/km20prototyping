@@ -12,6 +12,4 @@
     ));
 
     echo $result['Body'] . "\n";
-
-//    echo file_get_contents('hierarchy.json');
 ?>
