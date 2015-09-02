@@ -64,8 +64,10 @@ $(document).ready(function () {
         {
             for (var i = 0; i < fieldarray.length; i++)
             {
-                $('#fieldform').append('<label for="' + fieldarray[i].name + '">' + fieldarray[i].name + '</label>');
-                $('#fieldform').append('<input type="text" name="' + fieldarray[i].name + '"/><br><br>');
+                $newfielddiv = $('<div>');
+                $newfielddiv.append('<label for="' + fieldarray[i].name + '">' + fieldarray[i].name + '</label>');
+                $newfielddiv.append('<input type="text" name="' + fieldarray[i].name + '"/><br><br>');
+                $('#fieldform').prepend($newfielddiv);
             }
         }
     };

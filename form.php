@@ -15,7 +15,7 @@
         <input type="submit" value="Next"></input>
     </form>
     <form id="fieldform" class="centerform">
-        <button type="submit"></button>
+        <input type="submit" value="Submit"/>
     </form>
 </head>
 
