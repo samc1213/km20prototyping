@@ -1,0 +1,10 @@
+branch-defaults:
+  sam:
+    environment: kmtesting-dev
+global:
+  application_name: kmtesting
+  default_ec2_keyname: null
+  default_platform: PHP 5.6
+  default_region: us-west-2
+  profile: eb-cli
+  sc: git

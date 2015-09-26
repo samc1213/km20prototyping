@@ -36,3 +36,29 @@
 #categorydiv {
     display: none;
 }
+
+.centerform {
+    width: 20em;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    border: 1px solid black;
+}
+
+#categoryoptions {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#fieldform {
+    display: none;
+}
+
+.field {
+    font-style: italic;
+}
+
+.category {
+    font-weight: bold;
+}
