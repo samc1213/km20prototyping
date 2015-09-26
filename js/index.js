@@ -79,12 +79,32 @@ $(document).ready(function () {
         return count;
     };
     
+    function getAllAncestors(node) {
+        var nodes = [];
+        currentnode = node.parent;
+        while (currentnode.id != null) {
+            nodes.push(currentnode);
+            currentnode = currentnode.parent;
+        }
+        return nodes;
+    };
+    
+    function writeAncestors(ancestors) {
+        $(".ancestors").html('');
+        for (var i = 0; i < ancestors.length; i++)
+        {
+            var currentancestor = ancestors[i];
+            $(".ancestors").append("<span class='ancestor' id='ancestor" +  currentancestor.id + "'>" + currentancestor.name + "</span>");
+        }
+    };
+    
     $('#tree1').bind(
         'tree.select',
         function (event) {
             if (event.node) {
                 // node was selected
-                var node = event.node;
+                node = event.node;
+                writeAncestors(getAllAncestors(node));
                 var nodelevel = node.getLevel();
                 var type = node.type;
                 

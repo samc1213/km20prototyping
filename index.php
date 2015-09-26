@@ -23,6 +23,7 @@
         <div id="rightpane">
             <div id="categorydiv">
                 <h2>Category</h2>
+                <div class="ancestors"></div>
                 <label for="categoryname">Category name:</label>
                 <input type="text" id="categoryname"> <br>
                 <span>Level: </span><span id="categorylevel"></span> <br>
@@ -33,6 +34,7 @@
             </div>
             <div id="fielddiv">
                 <h2>Field</h2>
+                <div class="ancestors"></div>
                 <label for="fieldname">Field name:</label>
                 <input type="text" id="fieldname"> <br>
                 <label for="fieldtype">Field type: </label>

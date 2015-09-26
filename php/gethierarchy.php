@@ -1,17 +1,17 @@
 <?php
-    require $_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php';
-    use Aws\S3\S3Client;
+//    require $_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php';
+//    use Aws\S3\S3Client;
+//
+//    $bucket = getenv(S3_COREDATA_BUCKET);
+//
+//    $client = S3Client::factory();
+//
+//    $result = $client->getObject(array(
+//        'Bucket' => $bucket,
+//        'Key'    => 'hierarchy.json',
+//    ));
 
-    $bucket = getenv(S3_COREDATA_BUCKET);
-
-    $client = S3Client::factory();
-
-    $result = $client->getObject(array(
-        'Bucket' => $bucket,
-        'Key'    => 'hierarchy.json',
-    ));
-
-    echo $result['Body'] . "\n";
+//    echo $result['Body'] . "\n";
 //    use for local testing:
-//    echo file_get_contents('hierarchy.json');
+    echo file_get_contents('hierarchy.json');
 ?>
