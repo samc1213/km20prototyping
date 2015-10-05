@@ -62,3 +62,16 @@
 .category {
     font-weight: bold;
 }
+
+.ancestor {
+    position: relative;
+    z-index: 100;
+}
+
+.ancestors {
+    pointer-events:none;
+}
+
+#categorydiv {
+    pointer-events:none;
+}

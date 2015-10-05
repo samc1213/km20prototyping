@@ -93,9 +93,16 @@ $(document).ready(function () {
         $(".ancestors").html('');
         for (var i = 0; i < ancestors.length; i++)
         {
+            $(".ancestors").append("<p>>> </p>");
             var currentancestor = ancestors[i];
-            $(".ancestors").append("<span class='ancestor' id='ancestor" +  currentancestor.id + "'>" + currentancestor.name + "</span>");
+            $(".ancestors").append("<span class='ancestor'  onclick = 'ancestorClick()' id='ancestor" +  currentancestor.id + "'>" + currentancestor.name + "</span>");
+            $(".ancestors").append(" ");
         }
+    };
+    
+    function ancestorClick() {
+        console.log(this);
+        console.log("CLICK");
     };
     
     $('#tree1').bind(
