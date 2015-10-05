@@ -44,7 +44,7 @@ $(document).ready(function () {
     
     $.ajax({
         type: "GET",
-        url: '/php/gethierarchy.php',
+        url: '../php/gethierarchy.php',
         success: function (data) {
             jsonhierarchy = data;
             console.log(data);
@@ -232,7 +232,7 @@ $(document).ready(function () {
         
         $.ajax({
             type: "POST",
-            url: '/php/savehierarchy.php',
+            url: '../php/savehierarchy.php',
             data: {
                 data: jsondata
             },
