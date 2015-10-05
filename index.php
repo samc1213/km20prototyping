@@ -15,10 +15,10 @@
     <h1>KM 2.0 Testing</h1>
     <div id="parent">
         <div id="leftpane">
-            <button id="newcategorybtn" class="newelementbtn">Add new category to tree</button>
-            <button id="newfieldbtn" class="newelementbtn">Add new field to tree</button>
-            <button id="submitheirarchybtn">Save hierarchy</button>
-            <button id="deletenode">Delete selected node</button>
+            <button id="newcategorybtn" class="btn-default btn newelementbtn">Add new category to tree</button>
+            <button id="newfieldbtn" class="btn-default btn newelementbtn">Add new field to tree</button>
+            <button id="submitheirarchybtn" class="btn-default btn">Save hierarchy</button>
+            <button id="deletenode" class="btn-default btn">Delete selected node</button>
             <div id="tree1"></div>
         </div>
         <div id="rightpane">
@@ -31,7 +31,7 @@
                 <a href="" id="showquestion">Show category question</a>
                 <input id="categoryquestion">
                 <input type="hidden" id="categoryid">
-                <button id="savecategorychanges">Save</button>            
+                <button id="savecategorychanges" class="btn-default btn">Save</button>            
             </div>
             <div id="fielddiv">
                 <h2>Field</h2>
@@ -42,14 +42,14 @@
                 <select id="fieldtype"></select><br>
                 <input type="hidden" id="fieldid">
                 <input type="checkbox" id="fieldunits">Units?</label> 
-                <button id="savefieldchanges">Save</button>    
+                <button id="savefieldchanges" class="btn-default btn">Save</button>    
             </div>
         </div>
     </div>
 </body>
     
-    <script src="js/jquery.min.js"></script>
-    <script src="js/tree.jquery.js"></script>
-    <script src="js/index.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/tree.jquery.js"></script>
+<script src="js/index.js"></script>
     
 </html>
